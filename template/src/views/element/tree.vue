@@ -1,19 +1,23 @@
 <template>
   <div>
-    <el-tree
-      :props="props"
-      :load="loadNode"
-      lazy
-      ref="tree"
-      show-checkbox
-      highlightCurrent
-      @node-click="handleNodeClick"
-      @check-change="handleCheckChange">
-    </el-tree>
-    <el-card>
-      \{{ description }}
-    </el-card>
-    <el-button @click="getCheckedNodes">获取选中节点</el-button>
+    <el-col :span="9" :offset="2">
+      <el-tree
+        id="tree"
+        :props="props"
+        :load="loadNode"
+        lazy
+        ref="tree"
+        show-checkbox
+        highlightCurrent
+        @node-click="handleNodeClick"
+        @check-change="handleCheckChange">
+      </el-tree>
+    </el-col>
+    <el-col :span="9" :offset="2">
+      <el-card id="card">
+        <span v-html="description"></span>
+      </el-card>
+    </el-col>
   </div>
 </template>
 
@@ -42,9 +46,9 @@
       getCheckedNodes () {
         let selectedNodes = ''
         this.$refs.tree.getCheckedNodes().forEach(e => {
-          selectedNodes += e.name + '\n'
+          selectedNodes += e.name + '<br>'
         })
-        this.description = '当前选中节点信息:\n' + selectedNodes
+        this.description = '当前选中节点信息:<br><br>' + selectedNodes
       },
       loadNode (node, resolve) {
         console.log(node)
@@ -83,3 +87,6 @@
     }
   }
 </script>
+<style lang="scss" scoped>
+
+</style>

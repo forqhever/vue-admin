@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Layout from '../views/layout'
 import Tree from '../views/element/tree'
 import Table from '../views/element/table'
+import Form from '../views/element/form'
 import Intro from '../views/intro'
 import Login from '../views/login'
 import Error404 from '../views/error_page/404'
@@ -30,6 +31,11 @@ export default new Router({
           path: '/element/table',
           name: 'table',
           component: Table
+        },
+        {
+          path: '/element/form',
+          name: 'form表单',
+          component: Form
         },
         {
           path: '/error_page/404',

@@ -40,7 +40,7 @@
             </template>
               <el-menu-item index="/element/tree">树形控件</el-menu-item>
               <el-menu-item index="/element/table">Table数据展示</el-menu-item>
-              <el-menu-item index="1-2">Form表单</el-menu-item>
+              <el-menu-item index="/element/form">Form表单</el-menu-item>
               <el-submenu index="1-4">
                 <template slot="title">Others</template>
                 <el-menu-item index="1-4-1">提醒</el-menu-item>
@@ -78,7 +78,7 @@
     </el-container>
 
     <!-- 如果不需要底部栏,可以将下面三行去掉 -->
-    <el-footer>
+    <el-footer height="40px">
       ©2017 Xiaomi Huyu. All rights reserved.
     </el-footer>
 
@@ -137,13 +137,16 @@
   #main-menu {
     height: 100%;
   }
-  .el-header, .el-footer {
+  .el-header {
     background-color: $bg;
     color: white;
     line-height: 60px;
   }
   .el-footer {
+    background-color: $bg;
+    color: white;
      text-align: center;
+    line-height: 40px;
    }
   .icon-collapsed {
     cursor: pointer;
