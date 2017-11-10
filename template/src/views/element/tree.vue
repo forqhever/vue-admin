@@ -11,7 +11,7 @@
       @check-change="handleCheckChange">
     </el-tree>
     <el-card>
-      {{ description }}
+      \{{ description }}
     </el-card>
     <el-button @click="getCheckedNodes">获取选中节点</el-button>
   </div>

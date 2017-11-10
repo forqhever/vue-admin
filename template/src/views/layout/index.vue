@@ -6,7 +6,7 @@
       <i class="icon-collapsed el-icon-d-arrow-right" @click="changeCollapsed" v-show="isCollapsed"></i>
       <el-dropdown id="user-dropdown" @command="handleDropdownClick">
         <span id="user-info">
-          {{username}}<i class="el-icon-arrow-down el-icon--right"></i>
+          \{{username}}<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>设置</el-dropdown-item>
