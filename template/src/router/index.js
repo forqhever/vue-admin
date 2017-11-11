@@ -4,23 +4,25 @@ import Layout from '../views/layout'
 import Tree from '../views/element/tree'
 import Table from '../views/element/table'
 import Form from '../views/element/form'
-import Intro from '../views/intro'
+import Index from '../views/index'
 import Login from '../views/login'
 import Error404 from '../views/error_page/404'
+import Settings from '../views/settings'
+
+import store from '../store'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
-      name: '首页',
       component: Layout,
       children: [
         {
           path: '/',
-          name: '介绍',
-          component: Intro
+          name: '首页',
+          component: Index
         },
         {
           path: '/element/tree',
@@ -29,18 +31,23 @@ export default new Router({
         },
         {
           path: '/element/table',
-          name: 'table',
+          name: '表格',
           component: Table
         },
         {
           path: '/element/form',
-          name: 'form表单',
+          name: 'Form表单',
           component: Form
         },
         {
           path: '/error_page/404',
           name: '错误页面',
           component: Error404
+        },
+        {
+          path: '/settings',
+          name: '个人设置',
+          component: Settings
         }
       ]
     },
@@ -48,6 +55,41 @@ export default new Router({
       path: '/login',
       name: '登录',
       component: Login
+    },
+    {
+      path: '*',
+      redirect: '/error_page/404',
+      hidden: true
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (localStorage.getItem('token') || to.path === '/login') {
+    store.state.path = to.path
+    if (to.path !== '/login') {
+      store.state.visitedViewName = to.name
+      let visitedViews = store.state.visitedViews
+      let exists = false
+      for (let i = 0; i < visitedViews.length; i++) {
+        let view = visitedViews[i]
+        if (view.name === to.name) {
+          exists = true
+          break
+        }
+      }
+      if (!exists) {
+        store.state.visitedViews.push({
+          name: to.name,
+          path: to.path,
+          closable: to.path === '/'
+        })
+      }
+    }
+    next()
+  } else {
+    next('/login')
+  }
+})
+
+export default router

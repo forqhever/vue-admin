@@ -5,17 +5,11 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import store from './store'
+import axios from 'axios'
 
 Vue.use(ElementUI)
-
-router.beforeEach((to, from, next) => {
-  if (localStorage.getItem('token') === null &&
-        to.path !== '/login') {
-    next('/login')
-  } else {
-    next()
-  }
-})
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
@@ -23,6 +17,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

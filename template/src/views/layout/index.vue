@@ -1,163 +1,71 @@
 <template>
   <el-container id="container">
+
+    <!-- 头部 -->
     <el-header>
-      <span>Vue Admin</span>
-      <i class="icon-collapsed el-icon-d-arrow-left" @click="changeCollapsed" v-show="!isCollapsed"></i>
-      <i class="icon-collapsed el-icon-d-arrow-right" @click="changeCollapsed" v-show="isCollapsed"></i>
-      <el-dropdown id="user-dropdown" @command="handleDropdownClick">
-        <span id="user-info">
-          \{{username}}<i class="el-icon-arrow-down el-icon--right"></i>
-        </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>设置</el-dropdown-item>
-          <el-dropdown-item divided command="logout">退出</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <nav-bar></nav-bar>
     </el-header>
 
+    <!-- 外层容器 -->
     <el-container id="main-container">
-      <el-aside :span="menu_span">
-        <el-menu
-          default-active="2"
-          id="main-menu"
-          @open="handleOpen"
-          @close="handleClose"
-          :collapse="isCollapsed"
-          router
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b">
-
-          <el-menu-item index="/">
-            <i class="el-icon-setting"></i>
-            <span slot="title">首页</span>
-          </el-menu-item>
-
-          <el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>Element组件使用</span>
-            </template>
-              <el-menu-item index="/element/tree">树形控件</el-menu-item>
-              <el-menu-item index="/element/table">Table数据展示</el-menu-item>
-              <el-menu-item index="/element/form">Form表单</el-menu-item>
-              <el-submenu index="1-4">
-                <template slot="title">Others</template>
-                <el-menu-item index="1-4-1">提醒</el-menu-item>
-              </el-submenu>
-          </el-submenu>
-
-          <el-submenu index="2">
-            <template slot="title">
-              <i class="el-icon-menu"></i>
-              <span>自定义组件</span>
-            </template>
-            <el-menu-item index="error_page/404" class="menu-content">动画图片</el-menu-item>
-          </el-submenu>
-
-          <el-submenu index="3">
-            <template slot="title">
-              <i class="el-icon-menu"></i>
-              <span>错误页面</span>
-            </template>
-            <el-menu-item index="error_page/401" class="menu-content">401</el-menu-item>
-            <el-menu-item index="error_page/404" class="menu-content">404</el-menu-item>
-          </el-submenu>
-
-          <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">使用说明</span>
-          </el-menu-item>
-        </el-menu>
+      <!-- 侧边栏菜单 -->
+      <el-aside :width="menu_width+'px'">
+        <menu-bar></menu-bar>
       </el-aside>
 
+      <!-- 主区域 -->
       <el-main>
+        <tabs-bar></tabs-bar>
         <router-view />
       </el-main>
-
     </el-container>
 
-    <!-- 如果不需要底部栏,可以将下面三行去掉 -->
+    <!-- 底栏容器,如果不需要底栏,可以将下面三行去掉 -->
     <el-footer height="40px">
-      ©2017 Xiaomi Huyu. All rights reserved.
+      <footer-bar></footer-bar>
     </el-footer>
 
   </el-container>
 </template>
 
 <script>
+  import NavBar from './header.vue'
+  import MenuBar from './menu.vue'
+  import TabsBar from './tabs.vue'
+  import FooterBar from './footer.vue'
+
   export default {
+    name: 'layout',
+    components: {
+      NavBar,
+      MenuBar,
+      TabsBar,
+      FooterBar
+    },
     data () {
       return {
-        username: undefined,
-        isCollapsed: false,
-        menu_span: 5
-      }
-    },
-    mounted () {
-      this.username = localStorage.getItem('username')
-    },
-    methods: {
-      handleOpen (key, keyPath) {
-        console.log(key, keyPath)
-      },
-      handleClose (key, keyPath) {
-        console.log(key, keyPath)
-      },
-      changeCollapsed () {
-        this.isCollapsed = !this.isCollapsed
-        if (this.isCollapsed) {
-          this.menu_span = 4
-        } else {
-          this.menu_span = 5
-        }
-      },
-      handleDropdownClick (command) {
-        if (command === 'logout') {
-          localStorage.setItem('token', null)
-          localStorage.setItem('username', undefined)
-          this.$router.push('/login')
-        }
+        menu_width: 300
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  $bg:#2d3a4b;
-  $dark_gray:#889aa4;
-  $light_gray:#eee;
+
+  @import "~assets/scss/color.scss";
 
   #container {
     height: 100%;
   }
-  #main-container {
-    height: 100%;
-  }
-  #main-menu {
-    height: 100%;
+
+  .el-header, .el-footer {
+    background-color: $bg;
   }
   .el-header {
-    background-color: $bg;
-    color: white;
-    line-height: 60px;
-  }
-  .el-footer {
-    background-color: $bg;
-    color: white;
-     text-align: center;
-    line-height: 40px;
+     line-height: 60px;
    }
-  .icon-collapsed {
-    cursor: pointer;
-    margin-left: 50px;
-  }
-  #user-dropdown {
-    float: right;
-    margin-right: 20px;
-  }
-  #user-info {
-    color: white;
-    cursor: pointer;
-  }
+  .el-footer {
+     line-height: 40px;
+   }
+
 </style>
