@@ -6,11 +6,11 @@
       @tab-click="handleTabClick"
       @tab-remove="removeTab"
       @tab-add="addTab"
-      closable
       type="card"
     >
       <el-tab-pane
         v-for="(item, index) in editableTabs"
+        :closable="item.closable"
         :key="item.name"
         :label="item.name"
         :name="item.name">

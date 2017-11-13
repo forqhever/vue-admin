@@ -47,7 +47,7 @@
       <el-menu-item index="/error_page/404" class="menu-content">404</el-menu-item>
     </el-submenu>
 
-    <el-menu-item index="/introduction">
+    <el-menu-item index="/instruction">
       <i class="el-icon-setting"></i>
       <span slot="title">使用说明</span>
     </el-menu-item>

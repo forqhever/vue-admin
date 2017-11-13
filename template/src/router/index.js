@@ -8,6 +8,7 @@ import Index from '../views/index'
 import Login from '../views/login'
 import Error404 from '../views/error_page/404'
 import Settings from '../views/settings'
+import Instruction from '../views/instruction'
 
 import store from '../store'
 
@@ -43,6 +44,11 @@ let router = new Router({
           path: '/error_page/404',
           name: '错误页面',
           component: Error404
+        },
+        {
+          path: '/instruction',
+          name: '使用说明',
+          component: Instruction
         },
         {
           path: '/settings',
@@ -82,7 +88,7 @@ router.beforeEach((to, from, next) => {
         store.state.visitedViews.push({
           name: to.name,
           path: to.path,
-          closable: to.path === '/'
+          closable: to.path !== '/'
         })
       }
     }
