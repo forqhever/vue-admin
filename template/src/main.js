@@ -6,12 +6,17 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
-import axios from 'axios'
+import service from './service'
+import './mock'
 
 Vue.use(ElementUI)
-Vue.prototype.$http = axios
-
+Vue.prototype.$http = service
 Vue.config.productionTip = false
+
+service.post('/login', {username: 'admin', password: 'admin1'})
+  .then(res => {
+    console.log(res)
+  })
 
 /* eslint-disable no-new */
 new Vue({

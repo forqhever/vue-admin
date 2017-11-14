@@ -22,13 +22,7 @@
 </template>
 
 <script>
-  import ElCard from '../../../node_modules/element-ui/packages/card/src/main.vue'
-  import ElContainer from '../../../node_modules/element-ui/packages/container/src/main.vue'
-
   export default {
-    components: {
-      ElContainer,
-      ElCard},
     name: 'login',
     data () {
       return {
@@ -43,9 +37,18 @@
     },
     methods: {
       onLogin () {
-        localStorage.setItem('token', this.loginForm.username)
-        localStorage.setItem('username', this.loginForm.username)
-        this.$router.push('/')
+        this.$http.post('/login', {username: this.loginForm.username, password: this.loginForm.password})
+          .then(res => {
+            const data = res.data
+            if (data) {
+              localStorage.setItem('token', data.token)
+              localStorage.setItem('username', data.username + '[' + data.intro + ']')
+              this.$message.success('登录成功!' + data.username + ',欢迎您!')
+              this.$router.push('/')
+            } else {
+              this.$message.error('用户名密码错误!')
+            }
+          })
       },
       onPassChange () {
         if (this.passType === 'password') {
