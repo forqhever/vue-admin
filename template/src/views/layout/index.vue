@@ -9,9 +9,7 @@
     <!-- 外层容器 -->
     <el-container id="main-container">
       <!-- 侧边栏菜单 -->
-      <el-aside :width="menu_width+'px'">
-        <menu-bar></menu-bar>
-      </el-aside>
+      <menu-bar :style="menu_style"></menu-bar>
 
       <!-- 主区域 -->
       <el-main>
@@ -46,6 +44,11 @@
       return {
         menu_width: 300
       }
+    },
+    computed: {
+      menu_style () {
+        return this.$store.state.isCollapsed ? {} : { width: this.menu_width + 'px' }
+      }
     }
   }
 </script>
@@ -57,7 +60,6 @@
   #container {
     height: 100%;
   }
-
   .el-header, .el-footer {
     background-color: $bg;
   }
@@ -67,5 +69,4 @@
   .el-footer {
      line-height: 40px;
    }
-
 </style>

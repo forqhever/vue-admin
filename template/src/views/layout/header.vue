@@ -1,8 +1,13 @@
 <template>
   <div id="header">
+    <image-view
+      id="menu_img"
+      @click="onMenuClick"
+      src="/static/img/menu.png"
+      width="20px"
+      cls="rotate">
+    </image-view>
     <span>Vue Admin</span>
-    <i class="icon-collapsed el-icon-d-arrow-left" @click="changeCollapsed" v-show="!$store.state.isCollapsed"></i>
-    <i class="icon-collapsed el-icon-d-arrow-right" @click="changeCollapsed" v-show="$store.state.isCollapsed"></i>
     <el-dropdown id="user-dropdown" @command="handleDropdownClick">
         <span id="user-info">
           \{{username}}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -28,6 +33,9 @@
     computed: {
     },
     methods: {
+      onMenuClick () {
+        this.changeCollapsed()
+      },
       changeCollapsed () {
         this.$store.state.isCollapsed = !this.$store.state.isCollapsed
       },
@@ -49,10 +57,10 @@
   #header {
     color: white;
   }
-
-  .icon-collapsed {
+  #menu_img, span {
     cursor: pointer;
-    margin-left: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
   }
   #user-dropdown {
     float: right;

@@ -29,8 +29,12 @@
       editableTabs () {
         return this.$store.state.visitedViews
       },
-      selectedTab () {
-        return this.$store.state.visitedViewName
+      selectedTab: {
+        get () {
+          return this.$store.state.visitedViewName
+        },
+        set () {
+        }
       }
     },
     methods: {

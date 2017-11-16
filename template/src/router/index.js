@@ -6,7 +6,9 @@ import Table from '../views/element/table'
 import Form from '../views/element/form'
 import Index from '../views/index'
 import Login from '../views/login'
+import ImageView from '../views/custom/image_view'
 import Error404 from '../views/error_page/404'
+import Error401 from '../views/error_page/401'
 import Settings from '../views/settings'
 import Instruction from '../views/instruction'
 
@@ -42,8 +44,13 @@ let router = new Router({
         },
         {
           path: '/error_page/404',
-          name: '错误页面',
+          name: '404页面',
           component: Error404
+        },
+        {
+          path: '/error_page/401',
+          name: '401页面',
+          component: Error401
         },
         {
           path: '/instruction',
@@ -54,6 +61,11 @@ let router = new Router({
           path: '/settings',
           name: '个人设置',
           component: Settings
+        },
+        {
+          path: '/custom/image',
+          name: '动画图片',
+          component: ImageView
         }
       ]
     },

@@ -28,7 +28,7 @@
       return {
         loginForm: {
           username: 'admin',
-          password: '123'
+          password: 'admin'
         },
         loading: false,
         showDialog: false,

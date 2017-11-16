@@ -7,9 +7,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import service from './service'
+import MyComponent from './components'
 import './mock'
 
 Vue.use(ElementUI)
+Vue.use(MyComponent)
 Vue.prototype.$http = service
 Vue.config.productionTip = false
 
