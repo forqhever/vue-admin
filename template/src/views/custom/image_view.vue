@@ -19,7 +19,7 @@
           {url: '/static/img/settings.png', cls: 'rotate'},
           {url: '/static/img/template.png', cls: 'scale'},
           {url: '/static/img/password.png', cls: 'rotate'},
-          {url: '/static/img/user-manager.png', cls: 'scale'}
+          {url: '/static/img/user-manage.png', cls: 'scale'}
         ]
       }
     }
