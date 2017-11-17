@@ -4,6 +4,7 @@ import Layout from '../views/layout'
 import Tree from '../views/element/tree'
 import Table from '../views/element/table'
 import Form from '../views/element/form'
+import Notice from '../views/element/notice'
 import Index from '../views/index'
 import Login from '../views/login'
 import ImageView from '../views/custom/image_view'
@@ -41,6 +42,11 @@ let router = new Router({
           path: '/element/form',
           name: 'Form表单',
           component: Form
+        },
+        {
+          path: '/element/notice',
+          name: '提醒',
+          component: Notice
         },
         {
           path: '/error_page/404',

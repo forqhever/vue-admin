@@ -9,6 +9,7 @@ import store from './store'
 import service from './service'
 import MyComponent from './components'
 import './mock'
+import './assets/icons/iconfont.css'
 
 Vue.use(ElementUI)
 Vue.use(MyComponent)
