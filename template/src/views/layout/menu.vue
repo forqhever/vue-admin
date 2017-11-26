@@ -18,6 +18,15 @@
 
     <el-submenu index="1">
       <template slot="title">
+        <i class="el-icon-tickets"></i>
+        <span>vue基础</span>
+      </template>
+      <el-menu-item index="/vue/binding"><i class="el-icon-sort"></i>双向绑定</el-menu-item>
+      <el-menu-item index="/vue/lifecycle"><i class="el-icon-refresh"></i>生命周期</el-menu-item>
+    </el-submenu>
+
+    <el-submenu index="2">
+      <template slot="title">
         <i class="el-icon-self-zujian"></i>
         <span>Element组件使用</span>
       </template>
@@ -33,7 +42,7 @@
       </el-submenu>
     </el-submenu>
 
-    <el-submenu index="2">
+    <el-submenu index="3">
       <template slot="title">
         <i class="el-icon-self-zidingyi"></i>
         <span>自定义组件</span>
@@ -41,7 +50,7 @@
       <el-menu-item index="/custom/image"><i class="el-icon-self-mi-icon-image"></i>动画图片</el-menu-item>
     </el-submenu>
 
-    <el-submenu index="3">
+    <el-submenu index="4">
       <template slot="title">
         <i class="el-icon-self-error"></i>
         <span>错误页面</span>

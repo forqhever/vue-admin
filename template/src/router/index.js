@@ -12,6 +12,8 @@ import Error404 from '../views/error_page/404'
 import Error401 from '../views/error_page/401'
 import Settings from '../views/settings'
 import Instruction from '../views/instruction'
+import Binding from '../views/vue_base/binding'
+import Lifecycle from '../views/vue_base/lifecycle'
 
 import store from '../store'
 
@@ -72,6 +74,16 @@ let router = new Router({
           path: '/custom/image',
           name: '动画图片',
           component: ImageView
+        },
+        {
+          path: '/vue/binding',
+          name: 'vue双向绑定',
+          component: Binding
+        },
+        {
+          path: '/vue/lifecycle',
+          name: 'vue生命周期',
+          component: Lifecycle
         }
       ]
     },
