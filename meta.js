@@ -14,7 +14,7 @@ module.exports = {
             'type': 'string',
             'required': false,
             'message': 'Project description',
-            'default': 'Nuxt.js project'
+            'default': 'A vue.js project based on forqhever/vue-admin template.'
         },
         author: {
             'type': 'string',
