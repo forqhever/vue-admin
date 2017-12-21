@@ -12,9 +12,9 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (localStorage.getItem('token') || to.path === '/login') {
-    store.state.path = to.path
+    store.dispatch('setPath', to.path)
     if (to.path !== '/login') {
-      store.state.visitedViewName = to.name
+      store.dispatch('setVisitedViewName', to.name)
       let visitedViews = store.state.visitedViews
       let exists = false
       for (let i = 0; i < visitedViews.length; i++) {

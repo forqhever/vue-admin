@@ -26,16 +26,10 @@
       }
     },
     computed: {
-      editableTabs () {
-        return this.$store.state.visitedViews
-      },
-      selectedTab: {
-        get () {
-          return this.$store.state.visitedViewName
-        },
-        set () {
-        }
-      }
+      ...mapState({
+        editableTabs: state => state.visitedViews,
+        selectedTab: state => state.visitedViewName
+      })
     },
     methods: {
       handleTabClick (tab, event) {
@@ -71,10 +65,11 @@
             this.$router.push(visitedViews[idx + 1])
           }
         }
-        this.$store.state.visitedViews = visitedViews.filter(view => {
+        let views = visitedViews.filter(view => {
           console.log(view.name, tabName)
           return view.name !== tabName
         })
+        this.$store.dispatch('setVisitedViews', views)
       }
     }
   }
