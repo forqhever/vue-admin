@@ -1,18 +1,19 @@
 // 路由懒加载
-const Layout = () => import(/* webpackChunkName: "group-layout" */'../views/layout/index.vue')
-const Index = () => import(/* webpackChunkName: "group-layout" */'../views/index/index.vue')
-const Login = () => import(/* webpackChunkName: "group-layout" */'../views/login/index.vue')
-const ImageView = () => import(/* webpackChunkName: "group-layout" */'../views/custom/image_view.vue')
-const Error404 = () => import(/* webpackChunkName: "group-error" */'../views/error_page/404.vue')
-const Error401 = () => import(/* webpackChunkName: "group-error" */'../views/error_page/401.vue')
-const Settings = () => import(/* webpackChunkName: "group-layout" */'../views/settings/index.vue')
-const Instruction = () => import(/* webpackChunkName: "group-layout" */'../views/instruction/index.vue')
-const Binding = () => import(/* webpackChunkName: "group-layout" */'../views/vue_base/binding.vue')
-const Lifecycle = () => import(/* webpackChunkName: "group-layout" */'../views/vue_base/lifecycle.vue')
-const Tree = () => import(/* webpackChunkName: "group-vue" */'../views/element/tree.vue')
-const Table = () => import(/* webpackChunkName: "group-vue" */'../views/element/table.vue')
-const Form = () => import(/* webpackChunkName: "group-vue" */'../views/element/form.vue')
-const Notice = () => import(/* webpackChunkName: "group-vue" */'../views/element/notice.vue')
+const Layout = () => import(/* webpackChunkName: "group-layout" */'@/views/layout/index.vue')
+const Index = () => import(/* webpackChunkName: "group-layout" */'@/views/index/index.vue')
+const Login = () => import(/* webpackChunkName: "group-layout" */'@/views/login/index.vue')
+const ImageView = () => import(/* webpackChunkName: "group-layout" */'@/views/custom/image_view.vue')
+const Error404 = () => import(/* webpackChunkName: "group-error" */'@/views/error_page/404.vue')
+const Error401 = () => import(/* webpackChunkName: "group-error" */'@/views/error_page/401.vue')
+const Settings = () => import(/* webpackChunkName: "group-layout" */'@/views/settings/index.vue')
+const Instruction = () => import(/* webpackChunkName: "group-layout" */'@/views/instruction/index.vue')
+const Binding = () => import(/* webpackChunkName: "group-layout" */'@/views/vue_base/binding.vue')
+const Lifecycle = () => import(/* webpackChunkName: "group-layout" */'@/views/vue_base/lifecycle.vue')
+const Tree = () => import(/* webpackChunkName: "group-vue" */'@/views/element/tree.vue')
+const Table = () => import(/* webpackChunkName: "group-vue" */'@/views/element/table.vue')
+const Form = () => import(/* webpackChunkName: "group-vue" */'@/views/element/form.vue')
+const Notice = () => import(/* webpackChunkName: "group-vue" */'@/views/element/notice.vue')
+const Ajax = () => import(/* webpackChunkName: "group-vue" */'@/views/ajax/index.vue')
 
 const constRouters = [
   {
@@ -78,6 +79,11 @@ const constRouters = [
         path: '/vue/lifecycle',
         name: 'vue生命周期',
         component: Lifecycle
+      },
+      {
+        path: '/ajax',
+        name: 'ajax请求示例',
+        component: Ajax
       }
     ]
   },

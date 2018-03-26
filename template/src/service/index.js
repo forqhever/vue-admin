@@ -11,8 +11,6 @@ const service = axios.create({
   timeout: 5000
 })
 
-console.log(service.interceptors.request)
-
 // request拦截器
 service.interceptors.request.use(config => {
   console.log('request: ' + config.url)
@@ -27,16 +25,7 @@ service.interceptors.request.use(config => {
 
 // response拦截器
 service.interceptors.response.use(response => {
-  const data = response.data
-  console.log('response: ' + response.data)
-  const code = data ? data.code : 0
-  // console.log('code: ' + code)
-  // 50014:Token 过期了 50012:其他客户端登录了 50008:非法的token
-  if (code === 50008 || code === 50014 || code === 50012) {
-    // 重定向到登录页
-  } else {
-    return response
-  }
+  return response
 }, error => {
   console.log('error: ' + error)
   return Promise.reject(error)

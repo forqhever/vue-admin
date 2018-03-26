@@ -1,8 +1,8 @@
 {
-  "name": "vue-admin-wangl",
+  "name": "vue-admin",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "wangle1 <wangle1@xiaomi.com>",
+  "author": "wangl <wl920615@163.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
-    "element-ui": "^2.0.3",
+    "element-ui": "^2.2.2",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.6.0",
     "sass-loader": "^6.0.6",

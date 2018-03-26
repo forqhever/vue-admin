@@ -59,6 +59,15 @@
       <el-menu-item index="/error_page/404" class="menu-content"><i class="el-icon-self-404"></i>404</el-menu-item>
     </el-submenu>
 
+
+    <el-submenu index="5">
+      <template slot="title">
+        <i class="el-icon-upload"></i>
+        <span>Ajax</span>
+      </template>
+      <el-menu-item index="/ajax"><i class="el-icon-upload"></i>Ajax请求示例</el-menu-item>
+    </el-submenu>
+
     <el-menu-item index="/instruction">
       <i class="el-icon-self-shiyongshuoming"></i>
       <span slot="title">使用说明</span>

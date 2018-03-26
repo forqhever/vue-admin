@@ -14,12 +14,6 @@ import './assets/icons/iconfont.css'
 Vue.use(ElementUI)
 Vue.use(MyComponent)
 Vue.prototype.$http = service
-Vue.config.productionTip = false
-
-service.post('/login', {username: 'admin', password: 'admin1'})
-  .then(res => {
-    console.log(res)
-  })
 
 /* eslint-disable no-new */
 new Vue({

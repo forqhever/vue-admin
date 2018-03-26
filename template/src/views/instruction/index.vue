@@ -22,9 +22,6 @@
           {name: 'icon', link: 'http://www.iconfont.cn/'},
           {name: 'vue-router', link: 'https://router.vuejs.org/zh-cn/'},
           {name: 'vuex', link: 'https://cn.vuejs.org/v2/guide/state-management.html'}
-//          {name: 'vue-router', link: ''},
-//          {name: 'vue-router', link: ''},
-//          {name: 'vue-router', link: ''},
         ]
       }
     }
