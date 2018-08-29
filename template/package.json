@@ -2,7 +2,7 @@
   "name": "vue-admin-wangl",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "wangle1 <wangle1@xiaomi.com>",
+  "author": "forqhever",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
